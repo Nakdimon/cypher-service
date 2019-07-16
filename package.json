@@ -1,0 +1,32 @@
+{
+  "name": "cypher-service",
+  "version": "1.0.0",
+  "description": "cypher-service",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && webpack --mode development",
+    "start": "node ./dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nakdimon/cypher-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nakdimon/cypher-service/issues"
+  },
+  "homepage": "https://github.com/Nakdimon/cypher-service#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
