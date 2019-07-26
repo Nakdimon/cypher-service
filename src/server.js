@@ -1,8 +1,13 @@
 import path from 'path'
 import express from 'express'
+import cypherController from './controllers/cypherController'
+
 const app = express(),
-            DIST_DIR = __dirname            
+      DIST_DIR = __dirname            
+
 app.use(express.static(DIST_DIR))
+
+app.use('/', cypherController)
 
 app.get('/', function (req, res) {
  return res.send('Hello world');

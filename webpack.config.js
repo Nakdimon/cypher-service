@@ -1,10 +1,13 @@
 const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
+
 module.exports = {
   entry: {
     server: './src/server.js',
   },
+  mode: 'development',
+  devtool: 'none',
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
