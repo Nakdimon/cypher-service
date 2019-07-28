@@ -1,12 +1,17 @@
 import path from 'path'
 import express from 'express'
-const app = express(),
-            DIST_DIR = __dirname            
-app.use(express.static(DIST_DIR))
+import cypherController from './controllers/cypherController'
 
-app.get('/', function (req, res) {
- return res.send('Hello world');
-});
+const app = express(),
+      DIST_DIR = __dirname
+
+// app.use(express.static(DIST_DIR))
+
+app.use('/cypher', cypherController)
+
+app.get('/', (req, res) => {
+    res.send('This is a cypher api.')
+})
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
