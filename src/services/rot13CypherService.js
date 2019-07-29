@@ -3,7 +3,7 @@ module.exports =  {
     rot13Cypher: function (text = 'default', shift = 13) {
         var result = ''
         text.split('').forEach(char => {
-            if(char.match(/[a-zA-Z]{1}/g)) {
+            if(char.match(/^[A-Za-z]{1}$/)) {
                 var index = (letterToIndex[char.toUpperCase()] + shift) % 26
                 if(char==char.toLowerCase()) {
                     result += indexToLetter[index].toLowerCase()

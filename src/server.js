@@ -5,8 +5,6 @@ import cypherController from './controllers/cypherController'
 const app = express(),
       DIST_DIR = __dirname
 
-// app.use(express.static(DIST_DIR))
-
 app.use('/cypher', cypherController)
 
 app.get('/', (req, res) => {
