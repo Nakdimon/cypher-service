@@ -4,7 +4,7 @@ module.exports =  {
         var result = ''
         text.split('').forEach(char => {
             if(char.match(/^[A-Za-z]{1}$/)) {
-                var index = (letterToIndex[char.toUpperCase()] + shift) % 26
+                var index = (letterToIndex[char.toUpperCase()] + parseInt(shift)) % 26
                 if(char==char.toLowerCase()) {
                     result += indexToLetter[index].toLowerCase()
                 } else {
