@@ -3,15 +3,13 @@ import express from 'express'
 import cypherController from './controllers/cypherController'
 
 const app = express(),
-      DIST_DIR = __dirname            
+      DIST_DIR = __dirname
 
-app.use(express.static(DIST_DIR))
+app.use('/cypher', cypherController)
 
-app.use('/', cypherController)
-
-app.get('/', function (req, res) {
- return res.send('Hello world');
-});
+app.get('/', (req, res) => {
+    res.send('This is a cypher api.')
+})
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {

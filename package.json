@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && webpack --mode development",
-    "start": "node ./dist/server.js"
+    "start": "node ./dist/server.js",
+    "test":"mocha ./src/test/**/*.js --reporter spec",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,8 @@
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.6",
     "webpack-node-externals": "^1.7.2"
