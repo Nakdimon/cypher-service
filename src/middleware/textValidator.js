@@ -13,11 +13,16 @@ module.exports =  {
         return next();
     },
     isPositiveInteger: function (req, res, next) {
-        var shift = req.query.shift
-        if(!(Number.isInteger(shift)&&shift>=0)) {
-            err = new Error("Shift can only be a positive integer.")
-            res.send("Shift can only be a positive integer.")
-            next(err)
+        if(req.query.shift) {
+            var shift = !isNaN(req.query.shift) ? parseInt(req.query.shift) : -1
+            if(!(!isNaN(shift)&&Number.isInteger(shift)&&shift>=0)) {
+                console.log(shift)
+                err = new Error("Shift can only be a positive integer.")
+                res.send("Shift can only be a positive integer.")
+                next(err)
+            }
         }
+        
+        return next();
     }
 }
