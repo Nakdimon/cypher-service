@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rimraf dist && webpack --mode development",
     "start": "node ./dist/server.js",
-    "test":"mocha ./src/test/**/*.js --reporter spec"
+    "test":"mocha ./src/test/**/*.js --reporter spec",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "repository": {
     "type": "git",
