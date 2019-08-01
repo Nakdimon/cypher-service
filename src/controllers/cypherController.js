@@ -6,13 +6,13 @@ var { hasSpecialSymbols, isPositiveInteger }  = require('../middleware/textValid
 
 var router = express.Router();
 
-router.get('/caesar', hasSpecialSymbols, isPositiveInteger, (req, res) => {
-    var result = caesarCypherService.caesarCypher(req.query.text, req.query.shift)
+router.get('/caesar', hasSpecialSymbols, isPositiveInteger, (req, res) => {    
+    var result = caesarCypherService.caesarCypher(req.body.text, req.body.shift)
     res.send(result)
 })
 
 router.get('/rot13', hasSpecialSymbols, isPositiveInteger, (req, res) => {
-    var result = rot13CypherService.rot13Cypher(req.query.text, req.query.shift)
+    var result = rot13CypherService.rot13Cypher(req.body.text, req.body.shift)
     res.send(result)
 })
 
