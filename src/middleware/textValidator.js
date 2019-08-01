@@ -5,8 +5,9 @@ module.exports =  {
         var text = res.locals.text
         
         if(!noSymbolRegex.test(text)) {                      
-            err = new Error("You can only use text without special symbols.")
-            res.send("You can only use text without special symbols.")
+            err = new Error('You can only use text without special symbols.')
+            res.status(400).json({error: 'You can only use text without special symbols.' })
+            res.send()
             next(err)
         }
         
@@ -17,8 +18,9 @@ module.exports =  {
             var shift = !isNaN(req.query.shift) ? parseInt(req.query.shift) : -1
             if(!(!isNaN(shift)&&Number.isInteger(shift)&&shift>=0)) {
                 console.log(shift)
-                err = new Error("Shift can only be a positive integer.")
-                res.send("Shift can only be a positive integer.")
+                err = new Error('Shift can only be a positive integer.')
+                res.status(400).json({error: 'Shift can only be a positive integer.' })
+                res.send('Shift can only be a positive integer.')
                 next(err)
             }
         }

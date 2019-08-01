@@ -6,6 +6,10 @@ var { decodeRequestParam, hasSpecialSymbols, isPositiveInteger }  = require('../
 
 var router = express.Router();
 
+router.get('/', (req, res) => {
+    res.send('You should choose a cypher: {\'/caesar\' || \'/rot13\'}')
+})
+
 router.get('/caesar', decodeRequestParam, hasSpecialSymbols, isPositiveInteger, (req, res) => {    
     var result = caesarCypherService.caesarCypher(res.locals.text, req.query.shift)
     res.send(result)
