@@ -2,7 +2,7 @@ module.exports =  {
     hasSpecialSymbols: function(req, res, next) {
         var noSymbolRegex = new RegExp(/^[A-Za-z ]*$/)
         
-        var text = req.query.text
+        var text = res.locals.text
         
         if(!noSymbolRegex.test(text)) {                      
             err = new Error("You can only use text without special symbols.")
@@ -24,5 +24,9 @@ module.exports =  {
         }
         
         return next();
+    },
+    decodeRequestParam: function(req, res, next)    {
+        res.locals.text = decodeURI(req.query.text)
+        next()
     }
 }
