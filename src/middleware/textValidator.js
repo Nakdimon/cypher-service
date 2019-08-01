@@ -5,8 +5,8 @@ module.exports =  {
         var text = res.locals.text
         
         if(!noSymbolRegex.test(text)) {                      
-            err = new Error('You can only use text without special symbols.')
-            res.status(400).json({error: 'You can only use text without special symbols.' })
+            err = new Error('You can only use text without special symbols or numbers.')
+            res.status(400).json({error: 'You can only use text without special symbols or numbers.' })
             res.send()
             next(err)
         }
