@@ -29,7 +29,7 @@
     "@babel/preset-env": "^7.5.4",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.6",
     "webpack-node-externals": "^1.7.2"
